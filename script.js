@@ -65,6 +65,57 @@ function escopo() {
             result.innerHTML = ``;
         }
     })
+        // VALIDACAO DE OPERACOES
+
+        btn.addEventListener('click', function (params) {
+            params.preventDefault();
+            let resultado = parseFloat(peso.value) / (parseFloat(altura.value) * parseFloat(altura.value))
+    
+            //Validacao de resposta final
+    
+            if (resultado < 18.5) {
+                li1.style.border = "solid 2px red";
+                li1.style.padding = "10px";
+                resp.innerHTML = `<p>Cuidado você esta muito abaixo do peso</p>`
+                resp.style.color = "red"
+            }
+            else if (resultado >= 18.5 && resultado <= 24.9) {
+                li2.style.border = "solid 2px blue";
+                li2.style.padding = "10px";
+                resp.innerHTML = `<p>Parabens! Você esta com o peso ideal, muito bom!</p>`
+                resp.style.color = "blue"
+            }
+            else if (resultado >= 25 && resultado <= 29.9) {
+                li3.style.border = "solid 2px red";
+                li3.style.padding = "10px";
+                resp.innerHTML = `<p>Cuidado você esta sobrepeso e o proximo grau é a obsidade</p>`
+                resp.style.color = "red"
+            }
+            else if (resultado >= 30 && resultado <= 34.9) {
+                li4.style.border = "solid 2px red";
+                li4.style.padding = "10px";
+                resp.innerHTML = `<p>Nada bom! você esta com obsidade de grau 1</p>`
+                resp.style.color = "red"
+            }
+            else if (resultado >= 35 && resultado <= 39.9) {
+                li5.style.border = "solid 2px red";
+                li5.style.padding = "10px";
+                resp.innerHTML = `<p>Nada bom! você esta com obsidade de grau 2 o proximo grau é a obesidade de grau 3 considerada obesidade mormida. É recomendado um nutricionista para uma dieta urgente!</p>`
+                resp.style.color = "red"
+            }
+            else if (resultado >= 40) {
+                li6.style.border = "solid 2px red";
+                li6.style.padding = "10px";
+                resp.innerHTML = `<p>Nada bom! você esta com obsidade de grau 3 considerada obesidade mormida. É recomendado um nutricionista para uma dieta urgente!</p>`
+                resp.style.color = "red"
+            }
+            else {
+                li6.style.border = "none";
+                li6.style.padding = "none";
+                resp.innerHTML = ``
+                resp.style.color = "none"
+            }
+        })
 }
 escopo()
 
